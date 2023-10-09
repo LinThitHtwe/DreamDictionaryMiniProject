@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap");
+
+.dream-titles {
+  /* display: flex;
+  justify-content: space-around; */
+}
+.dream-grid {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  /* margin-top: 40px;
+  display: grid;
+  grid-template-columns: 2fr repeat(6, 1fr);
+
+  gap: 40px; */
+}
+
+.dream-card {
+  width: 18%;
+  padding: 10px;
+  background: #eee;
+  margin: 5px 5px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+  box-shadow: 2px 3px #ccc;
+  text-align: center;
+}
+
+.card-link {
+  text-decoration: none;
+}
