@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import supabase from "../config/SupabaseClient";
 import ReactPaginate from "react-paginate";
 
 const DreamDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [dreamDetails, setDreamDetails] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
   const [isPending, setIsPending] = useState(true);
@@ -38,11 +39,15 @@ const DreamDetail = () => {
   const handlePageClick = (selectedPage) => {
     setCurrentPage(selectedPage.selected);
   };
+
+  const backBtnClick = () => {
+    navigate("/");
+  };
   return (
     <div class="card sm">
       <div className="card-body">
         <h5 class="card-title">Card title</h5>
-        <table className="table table-hover table-bordered table-striped">
+        <table className="table table-hover table-bordered table-striped text-dark font-weight-light">
           <thead>
             <tr>
               <th>No.</th>
@@ -84,7 +89,7 @@ const DreamDetail = () => {
           breakLinkClassName={"page-link"}
         />
 
-        <button type="button" class="btn btn-secondary">
+        <button type="button" class="btn btn-secondary" onClick={backBtnClick}>
           Back
         </button>
       </div>

@@ -4,7 +4,7 @@ import DreamCard from "../components/DreamCard";
 
 const Home = () => {
   const [dreamTitles, setDreamTitles] = useState(null);
-
+  const [isPending, setIsPending] = useState(true);
   useEffect(() => {
     const fetchDreamTitles = async () => {
       const { data, error } = await supabase.from("BlogHeaders").select();
@@ -13,8 +13,8 @@ const Home = () => {
         console.log(error);
       }
       if (data) {
-        //console.log(data);
         setDreamTitles(data);
+        setIsPending(false);
       }
     };
 
@@ -24,9 +24,13 @@ const Home = () => {
     <div>
       {dreamTitles && (
         <div className="container">
+          {isPending && <p>Loading</p>}
           <div className="row">
             {dreamTitles.map((dreamTitle) => (
-              <div className="col-md-4" key={dreamTitle.id}>
+              <div
+                className="col-md-2 mb-4 mt-4 text-center font-weight-light "
+                key={dreamTitle.id}
+              >
                 <DreamCard dreamTitle={dreamTitle} />
               </div>
             ))}
