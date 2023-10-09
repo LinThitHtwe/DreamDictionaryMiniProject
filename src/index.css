@@ -1,27 +1,200 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap");
-
-.dream-titles {
- 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.dream-grid {
+
+.main {
+  display: flex;
+  justify-content: center;
+  background-color: #f4f4f8;
+}
+
+.border-card {
+  background-color: #f4f4f8;
   display: flex;
   justify-content: space-evenly;
-  flex-wrap: wrap;
+  width: 90vw;
+  height: 100vh;
+  border-radius: 30px;
+}
 
+.leftItem {
+  display: flex;
+  width: 150vw;
+  border-radius: 15px;
+}
+
+.rightItem {
+  display: flex;
+  min-width: 20px;
+  flex-wrap: wrap;
+  margin: 25px 25px;
+  background-color: #fff;
+  border-radius: 15px;
+}
+.dream-box {
+  display: flex;
+  min-width: 20px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin: 25px 25px;
+  max-width: 90vw;
+  padding: 10px 10px;
+}
+
+.info-box {
+  margin-top: 20%;
+  display: flex;
+  background-color: #adeee2;
+  width: 550px;
+  max-width: 50vw;
+  max-height: 50vh;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  padding: 20px 20px;
+  border-radius: 30px;
 }
 
 .dream-card {
-  width: 18%;
-  padding: 10px;
-  background: #eee;
-  margin: 5px 5px;
-  box-sizing: border-box;
-  border-radius: 6px;
-  border: 1px solid #bbb;
-  box-shadow: 2px 3px #ccc;
+  background-color: #a2dcee;
+  display: flex;
+  justify-content: space-evenly;
   text-align: center;
+  font-size: 13px;
+  margin: 8px 8px;
+  width: 80px;
+  height: 70px;
+  border-radius: 10px;
+  align-items: center;
 }
 
-.card-link {
+.dream-card:hover {
+  background-color: #68c7e3;
+}
+.dream-card .title {
+  color: #000;
   text-decoration: none;
+}
+
+.link-text {
+  text-decoration: none;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+  background-color: #a2dcee;
+  border-bottom: 3px solid #ddd;
+  /* box-shadow: 5px 10px #000; */
+}
+
+.dream-detail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+}
+
+.dream-detail-card {
+  width: 140vh;
+  background-color: #f4f4f8;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 50px;
+  border-radius: 10px;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.active {
+  background-color: #a9dfef;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #a9dfef;
+}
+
+.pagination.previous,
+.pagination.next {
+  background-color: #68c7e3;
+  margin: 0px 5px;
+}
+
+.pagination.break-item {
+  font-style: italic;
+  color: #999;
+}
+
+/* .pagination.pagination-container {
+  background-color: #d8d8d8;
+}
+
+.pagination.page-number {
+  background-color: #eee;
 } */
+
+table {
+  border-collapse: collapse;
+  width: 98%;
+  padding: 10px 10px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+th {
+  background-color: #28aed7;
+  color: white;
+}
+
+.backbutton-container {
+  display: flex;
+  width: 65vw;
+  justify-content: start;
+  margin-top: 40px;
+}
+
+.backbutton-container button {
+  width: 80px;
+  height: 30px;
+  border-radius: 10px;
+  border: none;
+  background-color: #68c7e3;
+}
+
+.nav-search {
+  width: 250px;
+  height: 40px;
+  border-radius: 10px;
+  border: 0;
+  margin: 7px 5px;
+}
+
+.navbar-brand {
+  margin-top: 15px;
+  margin-left: 10px;
+}

@@ -44,51 +44,53 @@ const DreamDetail = () => {
     navigate("/");
   };
   return (
-    <div class="card sm">
-      <div className="card-body">
-        <h5 class="card-title">Card title</h5>
-        <table className="table table-hover table-bordered table-striped text-dark font-weight-light">
-          <thead>
-            <tr>
-              <th>No.</th>
-              <th>Questions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {isPending && <td>Loading</td>}
+    <div className="dream-detail">
+      <div className="dream-detail-card">
+        <div className="dream-detail">
+          <table className="table table-hover table-bordered table-striped text-dark font-weight-light">
+            <thead>
+              <tr>
+                <th>No.</th>
+                <th>Questions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {isPending && <td>Loading</td>}
 
-            {paginatedData &&
-              paginatedData.map((d, i) => (
-                <tr key={d.id}>
-                  <th>{cumulativeCount + i + 1}</th>
-                  <th>
-                    <span>{d.BlogContent}</span>
-                  </th>
-                </tr>
-              ))}
-          </tbody>
-        </table>
+              {paginatedData &&
+                paginatedData.map((d, i) => (
+                  <tr key={d.id}>
+                    <td>{cumulativeCount + i + 1}</td>
+                    <td>
+                      <span>{d.BlogContent}</span>
+                    </td>
+                  </tr>
+                ))}
+            </tbody>
+          </table>
 
-        <ReactPaginate
-          previousLabel={"Previous"}
-          nextLabel={"Next"}
-          breakLabel={"..."}
-          pageCount={Math.ceil((dreamDetails?.length || 0) / itemsPerPage)}
-          marginPagesDisplayed={1}
-          pageRangeDisplayed={2}
-          onPageChange={handlePageClick}
-          containerClassName={"pagination"}
-          pageClassName={"page-item"}
-          pageLinkClassName={"page-link"}
-          previousClassName={"page-item"}
-          previousLinkClassName={"page-link"}
-          nextClassName={"page-item"}
-          nextLinkClassName={"page-link"}
-          activeClassName={"active"}
-          breakClassName={"page-item disabled"}
-          breakLinkClassName={"page-link"}
-        />
-
+          <ReactPaginate
+            previousLabel={"Previous"}
+            nextLabel={"Next"}
+            breakLabel={"..."}
+            pageCount={Math.ceil((dreamDetails?.length || 0) / itemsPerPage)}
+            marginPagesDisplayed={1}
+            pageRangeDisplayed={2}
+            onPageChange={handlePageClick}
+            containerClassName={"pagination pagination-container"}
+            pageClassName={"pagination page-number"}
+            pageLinkClassName={"pagination"}
+            previousClassName={"pagination previous"}
+            previousLinkClassName={"pagination"}
+            nextClassName={"pagination next"}
+            nextLinkClassName={"pagination"}
+            activeClassName={"active"}
+            breakClassName={"pagination break-item"}
+            breakLinkClassName={"pagination"}
+          />
+        </div>
+      </div>
+      <div className="backbutton-container">
         <button type="button" class="btn btn-secondary" onClick={backBtnClick}>
           Back
         </button>

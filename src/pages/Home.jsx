@@ -21,22 +21,32 @@ const Home = () => {
     fetchDreamTitles();
   }, []);
   return (
-    <div>
-      {dreamTitles && (
-        <div className="container">
-          {isPending && <p>Loading</p>}
-          <div className="row">
-            {dreamTitles.map((dreamTitle) => (
-              <div
-                className="col-md-2 mb-4 mt-4 text-center font-weight-light "
-                key={dreamTitle.id}
-              >
-                <DreamCard dreamTitle={dreamTitle} />
-              </div>
-            ))}
+    <div className="main">
+      <div className="border-card">
+        <div className="leftItem">
+          <div className="info-box">
+            <h3>Dream-Dictionary အိပ်မက်အဘိဓာန် </h3>
+            <br />
+            <p>
+              အက္ခရာ အစဉ်လိုက် (က မှ အ ထိ) အိပ်မက် နိမိတ်များ ၊
+              အိမ်မက်အမျိုးမျိုးနှင့်အသားလှုပ်နိမိတ် ၊အိမ်မက်နှင့် ပါတ်သက်သော
+              နိမိတ်များ ၊ အိပ်မက်အဘိဓာန် အိမ်မက်နိမိတ်အတွက်
+              မသိသေးသောသူများအတွက် အိပ်မက်နှင့်ပတ်သက်သော နိမိတ်များ
+              (အိမ်မက်အမျိုးမျိုးနှင့်အသားလှုပ်နိမိတ်)စာအုပ်မှကူးယူဖော်ပြပေးထားပါသည်
+            </p>
           </div>
         </div>
-      )}
+        <div className="rightItem">
+          <div className="dream-box">
+            {dreamTitles &&
+              dreamTitles.map((dreamTitle) => (
+                <div key={dreamTitle.id}>
+                  <DreamCard dreamTitle={dreamTitle} />
+                </div>
+              ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

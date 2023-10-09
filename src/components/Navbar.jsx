@@ -2,11 +2,11 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-light bg-light justify-content-between">
-      <a className="navbar-brand">Dream - Dictionary</a>
-      <form className="form-inline">
+    <nav className="navbar">
+      <a className="navbar-brand">Dream-Dictionary အိပ်မက်အဘိဓာန်</a>
+      <form className="">
         <input
-          className="form-control mr-sm-2"
+          className="nav-search"
           type="search"
           placeholder="Search"
           aria-label="Search"
