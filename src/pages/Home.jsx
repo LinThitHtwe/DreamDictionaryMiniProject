@@ -34,6 +34,11 @@ const Home = () => {
               မသိသေးသောသူများအတွက် အိပ်မက်နှင့်ပတ်သက်သော နိမိတ်များ
               (အိမ်မက်အမျိုးမျိုးနှင့်အသားလှုပ်နိမိတ်)စာအုပ်မှကူးယူဖော်ပြပေးထားပါသည်
             </p>
+            <input
+              type="text"
+              placeholder="Search Dreams"
+              className="dream-detail-search"
+            />
           </div>
         </div>
         <div className="rightItem">

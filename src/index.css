@@ -88,6 +88,9 @@
   height: 60px;
   background-color: #a2dcee;
   border-bottom: 3px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   /* box-shadow: 5px 10px #000; */
 }
 
@@ -135,6 +138,7 @@
 .pagination.next {
   background-color: #68c7e3;
   margin: 0px 5px;
+  border-radius: 10px;
 }
 
 .pagination.break-item {
@@ -187,6 +191,21 @@ th {
 }
 
 .nav-search {
+  width: 250px;
+  height: 40px;
+  border-radius: 10px;
+  border: 0;
+  margin: 7px 5px;
+}
+
+.dream-detail-title {
+  display: flex;
+  justify-content: space-between;
+  width: 130vh;
+  align-items: center;
+}
+
+.dream-detail-search {
   width: 250px;
   height: 40px;
   border-radius: 10px;

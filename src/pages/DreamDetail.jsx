@@ -9,11 +9,15 @@ const DreamDetail = () => {
   const [dreamDetails, setDreamDetails] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
   const [isPending, setIsPending] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
+
   const itemsPerPage = 8;
   const startIndex = currentPage * itemsPerPage;
   const endIndex = Number(startIndex) + Number(itemsPerPage);
+
   let paginatedData;
   let cumulativeCount = currentPage * itemsPerPage;
+
   if (dreamDetails) {
     paginatedData = dreamDetails.slice(startIndex, endIndex);
   }
@@ -36,6 +40,16 @@ const DreamDetail = () => {
     };
     fetchDreamDetails();
   }, [id]);
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+    setCurrentPage(0);
+  };
+
+  const filteredData = dreamDetails?.filter((d) =>
+    d.BlogContent.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   const handlePageClick = (selectedPage) => {
     setCurrentPage(selectedPage.selected);
   };
@@ -43,10 +57,24 @@ const DreamDetail = () => {
   const backBtnClick = () => {
     navigate("/");
   };
+  const noResults = filteredData && filteredData.length === 0;
+
+  paginatedData = filteredData?.slice(startIndex, endIndex);
   return (
     <div className="dream-detail">
       <div className="dream-detail-card">
         <div className="dream-detail">
+          <div className="dream-detail-title">
+            <label>Table</label>
+            <input
+              className="dream-detail-search"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              value={searchQuery}
+              onChange={handleSearchChange}
+            />
+          </div>
           <table className="table table-hover table-bordered table-striped text-dark font-weight-light">
             <thead>
               <tr>
@@ -55,9 +83,17 @@ const DreamDetail = () => {
               </tr>
             </thead>
             <tbody>
-              {isPending && <td>Loading</td>}
-
-              {paginatedData &&
+              {isPending && (
+                <tr>
+                  <td>Loading</td>
+                </tr>
+              )}
+              {noResults ? (
+                <tr>
+                  <td colSpan="2">No data found.</td>
+                </tr>
+              ) : (
+                paginatedData &&
                 paginatedData.map((d, i) => (
                   <tr key={d.id}>
                     <td>{cumulativeCount + i + 1}</td>
@@ -65,29 +101,32 @@ const DreamDetail = () => {
                       <span>{d.BlogContent}</span>
                     </td>
                   </tr>
-                ))}
+                ))
+              )}
             </tbody>
           </table>
 
-          <ReactPaginate
-            previousLabel={"Previous"}
-            nextLabel={"Next"}
-            breakLabel={"..."}
-            pageCount={Math.ceil((dreamDetails?.length || 0) / itemsPerPage)}
-            marginPagesDisplayed={1}
-            pageRangeDisplayed={2}
-            onPageChange={handlePageClick}
-            containerClassName={"pagination pagination-container"}
-            pageClassName={"pagination page-number"}
-            pageLinkClassName={"pagination"}
-            previousClassName={"pagination previous"}
-            previousLinkClassName={"pagination"}
-            nextClassName={"pagination next"}
-            nextLinkClassName={"pagination"}
-            activeClassName={"active"}
-            breakClassName={"pagination break-item"}
-            breakLinkClassName={"pagination"}
-          />
+          {filteredData && filteredData.length > itemsPerPage && (
+            <ReactPaginate
+              previousLabel={"Previous"}
+              nextLabel={"Next"}
+              breakLabel={"..."}
+              pageCount={Math.ceil((dreamDetails.length || 0) / itemsPerPage)}
+              marginPagesDisplayed={1}
+              pageRangeDisplayed={2}
+              onPageChange={handlePageClick}
+              containerClassName={"pagination pagination-container"}
+              pageClassName={"pagination page-number"}
+              pageLinkClassName={"pagination"}
+              previousClassName={"pagination previous"}
+              previousLinkClassName={"pagination"}
+              nextClassName={"pagination next"}
+              nextLinkClassName={"pagination"}
+              activeClassName={"active"}
+              breakClassName={"pagination break-item"}
+              breakLinkClassName={"pagination"}
+            />
+          )}
         </div>
       </div>
       <div className="backbutton-container">
