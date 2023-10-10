@@ -40,7 +40,9 @@
   justify-content: space-evenly;
   margin: 25px 25px;
   max-width: 90vw;
+  width: 170vh;
   padding: 10px 10px;
+  max-height: 100vh;
 }
 
 .info-box {
@@ -60,6 +62,7 @@
 .dream-card {
   background-color: #a2dcee;
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
   text-align: center;
   font-size: 13px;
@@ -73,9 +76,12 @@
 .dream-card:hover {
   background-color: #68c7e3;
 }
-.dream-card .title {
+.dream-card .title,
+.dream-card .title-detail {
   color: #000;
   text-decoration: none;
+  margin: 0;
+  border: 0;
 }
 
 .link-text {
@@ -111,6 +117,11 @@
   margin-top: 50px;
   border-radius: 10px;
 }
+.search-pagination {
+  display: inline-block;
+  /* height: 30px; */
+  width: 40px;
+}
 
 .pagination {
   display: inline-block;
@@ -139,6 +150,14 @@
   background-color: #68c7e3;
   margin: 0px 5px;
   border-radius: 10px;
+}
+
+.search-pagination.previous,
+.search-pagination.next {
+  background-color: #68c7e3;
+  margin: 0px 5px;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .pagination.break-item {

@@ -31,9 +31,14 @@ const DreamDetail = () => {
 
       if (error) {
         console.log(error);
+        navigate("/");
+        return;
       }
       if (data) {
-        console.log(data);
+        if (data.length < 1) {
+          navigate("/");
+          return;
+        }
         setDreamDetails(data);
         setIsPending(false);
       }
@@ -130,7 +135,7 @@ const DreamDetail = () => {
         </div>
       </div>
       <div className="backbutton-container">
-        <button type="button" class="btn btn-secondary" onClick={backBtnClick}>
+        <button type="button" onClick={backBtnClick}>
           Back
         </button>
       </div>

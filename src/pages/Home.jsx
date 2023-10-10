@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import supabase from "../config/SupabaseClient";
 import DreamCard from "../components/DreamCard";
+import HomeSearch from "../components/HomeSearch";
 
 const Home = () => {
   const [dreamTitles, setDreamTitles] = useState(null);
   const [isPending, setIsPending] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
   useEffect(() => {
     const fetchDreamTitles = async () => {
       const { data, error } = await supabase.from("BlogHeaders").select();
@@ -20,6 +22,11 @@ const Home = () => {
 
     fetchDreamTitles();
   }, []);
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
   return (
     <div className="main">
       <div className="border-card">
@@ -38,17 +45,24 @@ const Home = () => {
               type="text"
               placeholder="Search Dreams"
               className="dream-detail-search"
+              value={searchQuery}
+              onChange={handleSearchChange}
             />
           </div>
         </div>
         <div className="rightItem">
           <div className="dream-box">
-            {dreamTitles &&
+            {isPending && <p>Loading</p>}
+            {searchQuery.length === 0 &&
+              dreamTitles &&
               dreamTitles.map((dreamTitle) => (
                 <div key={dreamTitle.id}>
                   <DreamCard dreamTitle={dreamTitle} />
                 </div>
               ))}
+            {searchQuery.length !== 0 && (
+              <HomeSearch searchQuery={searchQuery} />
+            )}
           </div>
         </div>
       </div>
