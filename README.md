@@ -1,8 +1,27 @@
-# React + Vite
+# Dream Dictionary 🌙
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Explore the fascinating world of dreams with our Dream Dictionary! 📚✨
 
-Currently, two official plugins are available:
+- Click on each alphabet to navigate to the dream details. 🚀
+- Utilize the search input to find specific dream details. 🔍
+- Enjoy seamless pagination on both the home page and dream detail page. 📖🔄
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is developed using **ReactJS** and **Supabase** . 🚀🛠️
+
+## Project Screenshots 📸
+
+1. **Home Screen** 🏡
+   ![Home Screen](docs/home.jpg)
+   *Welcome to the Dream Dictionary home screen!*
+
+2. **Home Search Screen** 🔍🏡
+   ![Home Search Screen](docs/home_search.jpg)
+   *Explore dream details easily with search functionality!*
+
+3. **Dreams List** 📚✨
+   ![Dream List](docs/dreams_list.jpg)
+   *Browse through a curated list of dreams details.*
+
+4. **Dreams List Search Page** 🔍📚
+   ![Dreams List Search Page](docs/dreams_list_search.jpg)
+   *Effortlessly find specific dreams with search feature!*
