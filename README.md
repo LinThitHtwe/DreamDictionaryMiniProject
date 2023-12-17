@@ -25,3 +25,12 @@ This project is developed using **ReactJS** and **Supabase** . 🚀🛠️
 4. **Dreams List Search Page** 🔍📚
    ![Dreams List Search Page](docs/dreams_list_search.jpg)
    *Effortlessly find specific dreams with search feature!*
+
+
+## Credit 💡
+
+This project idea comes from [@sannlynnhtun-coding](https://github.com/sannlynnhtun-coding). 🙌
+
+Special Thanks 🌟 to [@sannlynnhtun-coding](https://github.com/sannlynnhtun-coding) for the inspiration and project concept!
+
+The JSON data can be found at [Dream-Dictionary](https://github.com/sannlynnhtun-coding/Dream-Dictionary), where you can try it out for yourself! 🚀
